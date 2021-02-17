@@ -10,17 +10,27 @@ class ToDo {
     }
     addTask(text) {
         const task = {
-            id: 10,
+            id: Date.now(),
             text: text,
             done: false,
         }
         this.tasks = [...this.tasks, task]
         this.render()
     }
+    toggleDone(id) {
+        this.tasks = this.tasks.map(task => {
+            if(task.id !== id) return task
+            return {
+                ...task, done: !task.done
+            }
+        })
+        this.render()
+    }
     renderTask() {
         this.tasks.forEach((taskData) => {
             const task = new Task(taskData,
-                () => console.log('Done'),
+                () => this.toggleDone(taskData.id),
+                // () => console.log('Done'),
                 () => this.deleteTask(taskData.id),
             )
             this.container.appendChild(task.render())

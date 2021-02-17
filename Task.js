@@ -15,10 +15,12 @@ class Task {
         let buttonDelete = new Button('Delete', this.onDelete)
         
         // task
-        container.appendChild(p)
         if(this.task.done) {
             p.classList.add('task-done')
+        } else {
+            p.classList.remove('task-done')
         }
+        container.appendChild(p)
 
         // buttons
         const buttons = document.createElement('div')
