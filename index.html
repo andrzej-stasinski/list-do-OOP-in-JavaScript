@@ -13,7 +13,7 @@
 
     
     <div class="container">
-        <h2>todo list</h2>
+        <h2 class='header'>todo list</h2>
     </div>
 
     <script src="Input.js"></script>
@@ -21,26 +21,10 @@
     <script src="Form.js"></script>
     <script src="Task.js"></script>
     <script src="ToDo.js"></script>
+    <script src="script.js"></script>
 
     <script>
-        const input1 = new Input('Text', (val) => console.log(val))
-        const button1 = new Button('Add', () => console.log('click'))
-        const task1 = new Task(
-            {'task': 'clean up the room', done: true},
-            () => console.log('Done'),
-            () => console.log('Delete'),
-        )
-        const task2 = new Task(
-            {'task': 'sweep the floor', done: false},
-            () => console.log('Done'),
-            () => console.log('Delete'),
-        )
 
-        const container = document.querySelector('.container')
-        container.appendChild(input1.render())
-        container.appendChild(button1.render())
-        container.appendChild(task1.render())
-        container.appendChild(task2.render())
 
 
 

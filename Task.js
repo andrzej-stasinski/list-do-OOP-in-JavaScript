@@ -10,17 +10,22 @@ class Task {
         const p = document.createElement('p')
         p.textContent = this.task.task
 
+        // button - done & delete
         const buttonDone = new Button('Done', this.onDone)
-        const buttonDelete = new Button('Delete', this.onDelete)
+        let buttonDelete = new Button('Delete', this.onDelete)
         
+        // task
         container.appendChild(p)
         if(this.task.done) {
             p.classList.add('task-done')
         }
 
+        // buttons
         const buttons = document.createElement('div')
+        buttonDelete = buttonDelete.render()
+        buttonDelete.classList.add('btn-delete')
         buttons.appendChild(buttonDone.render())
-        buttons.appendChild(buttonDelete.render())
+        buttons.appendChild(buttonDelete)
 
         container.appendChild(buttons)
         container.classList.add('containerTask')
