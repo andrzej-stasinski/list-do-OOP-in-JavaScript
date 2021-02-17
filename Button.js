@@ -7,7 +7,9 @@ class Button {
     render() {
         const button = document.createElement('button')
         button.textContent = this.label
-        button.addEventListener('click', this.onClick)
+        button.addEventListener('click', () => this.onClick())
+        
+        button.classList.add('button')
         return button
     }
 }

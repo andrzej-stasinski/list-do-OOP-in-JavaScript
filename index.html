@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todo list</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
+
     </style>
 </head>
 <body>
 
-    <h2>todo list</h2>
+    
     <div class="container">
-
+        <h2>todo list</h2>
     </div>
+
     <script src="Input.js"></script>
     <script src="Button.js"></script>
     <script src="Form.js"></script>
@@ -24,9 +23,11 @@
     <script src="ToDo.js"></script>
 
     <script>
+        const input1 = new Input('Text', (val) => console.log(val))
         const button1 = new Button('Add', () => console.log('click'))
 
         const container = document.querySelector('.container')
+        container.appendChild(input1.render())
         container.appendChild(button1.render())
 
 
