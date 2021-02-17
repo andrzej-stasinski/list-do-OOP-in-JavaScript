@@ -8,7 +8,7 @@ class Task {
     render() {
         const container = document.createElement('div')
         const p = document.createElement('p')
-        p.textContent = this.task.task
+        p.textContent = this.task.text
 
         // button - done & delete
         const buttonDone = new Button('Done', this.onDone)
