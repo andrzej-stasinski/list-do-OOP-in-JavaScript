@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>todo list</h2>
+    <div class="container">
+
+    </div>
+    <script src="Input.js"></script>
+    <script src="Button.js"></script>
+    <script src="Form.js"></script>
+    <script src="Task.js"></script>
+    <script src="ToDo.js"></script>
+
+    <script>
+        const button1 = new Button('Add', () => console.log('click'))
+
+        const container = document.querySelector('.container')
+        container.appendChild(button1.render())
+
+
+
+    </script>
+</body>
+</html>
