@@ -2,28 +2,33 @@
 class ToDo {
     constructor(tasks) {
         this.tasks = tasks || []
+        this.container = null
     }
     deleteTask(index) {
         this.tasks = this.tasks.filter(task => task.id !== index)
+        this.render()
     }
-    renderTask(container) {
+    renderTask() {
         this.tasks.forEach((taskData) => {
             const task = new Task(taskData,
                 () => console.log('Done'),
-                () => console.log('Delete'),
+                () => this.deleteTask(taskData.id),
             )
-            container.appendChild(task.render())
+            this.container.appendChild(task.render())
         })        
     }
     render() {
-        const container = document.createElement('div')
+        if(this.container === null) {
+            this.container = document.createElement('div')
+        }
+        this.container.innerHTML = ''
 
         const form = new Form('', val => console.log(val))
-        container.appendChild(form.render())
+        this.container.appendChild(form.render())
 
         this.renderTask(container)
 
-        return container
+        return this.container
     }
 }
 
