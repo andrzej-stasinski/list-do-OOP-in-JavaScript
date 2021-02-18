@@ -30,6 +30,7 @@ class Task {
 
         // buttons
         const buttons = document.createElement('div')
+        buttons.classList.add('div-buttons')
             buttonDone = buttonDone.render()
             this.task.done ? buttonDone.classList.add('btn-done') : buttonDone.classList.add('btn-none-done')
             buttonDelete = buttonDelete.render()

@@ -9,6 +9,8 @@ body {
 .container {
     max-width: 500px;
     margin: 0 auto;
+    padding: 10px;
+    background: rgb(255, 209, 209);
 }
 .header {
     margin-bottom: 20px;
@@ -20,11 +22,15 @@ form {
     width: 100%;
     padding: 5px;    
 }
+.div-buttons {
+    display: flex;
+}
 .button {
     width: 100px;
     cursor: pointer;
     padding: 5px;
     margin-left: 5px;
+    height: 30px;
 }
 .btn-delete {
     background-color: rgb(255, 167, 167);
@@ -64,8 +70,14 @@ form {
 
 @media (max-width: 400px) {
     .container {
-        background-color: yellow;
-    }    
+        background: rgb(162, 246, 190);
+    } 
+    .div-buttons {
+        flex-direction: column;
+    } 
+    .button:nth-child(1) {
+        margin-bottom: 5px;
+    }  
 }
 
 
