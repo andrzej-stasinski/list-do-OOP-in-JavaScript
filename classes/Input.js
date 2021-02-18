@@ -11,7 +11,7 @@ class Input {
         input.setAttribute('maxlength', maxChar)
         input.addEventListener('input', e => {
             input.classList.remove('input-error')
-            this.onChange(e.target.value)
+            this.onChange(e.target.value, e.target.value.length)
         })
         input.classList.add('input')
         return input        

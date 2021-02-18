@@ -14,10 +14,9 @@ class Form {
         form.appendChild(counter)
 
         const maxChar = 40
-        const input1 = new Input('', val => {
-            // console.log(val)
-            counter.textContent = this.val.length + 1
-            if(this.val.length + 1 >= maxChar) {
+        const input1 = new Input('', (val, count) => {
+            counter.textContent = count
+            if(count >= maxChar) {
                 counter.textContent = 'max'
                 console.log(val)
             }
