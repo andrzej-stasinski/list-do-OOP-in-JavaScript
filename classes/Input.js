@@ -7,6 +7,8 @@ class Input {
     render() {
         const input = document.createElement('input')
         input.value = this.text
+        const maxChar = 40
+        input.setAttribute('maxlength', maxChar)
         input.addEventListener('input', e => {
             input.classList.remove('input-error')
             this.onChange(e.target.value)

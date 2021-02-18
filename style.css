@@ -77,9 +77,8 @@ form {
     text-decoration: line-through;
 }
 .counter {
-    background: red;
     position: absolute;
-    right: 90px;top: 5px;
+    right: 92px;top: 5px;
 }
 
 @media (max-width: 410px) {
