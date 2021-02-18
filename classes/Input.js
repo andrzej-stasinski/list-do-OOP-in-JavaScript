@@ -7,8 +7,10 @@ class Input {
     render() {
         const input = document.createElement('input')
         input.value = this.text
-        input.addEventListener('input', e => this.onChange(e.target.value))
-        
+        input.addEventListener('input', e => {
+            input.classList.remove('input-error')
+            this.onChange(e.target.value)
+        })
         input.classList.add('input')
         return input        
     }
