@@ -10,8 +10,14 @@ class Task {
         const p = document.createElement('p')
         p.textContent = this.task.text
 
-        // button - done & delete
-        const buttonDone = new Button('Done', this.onDone)
+        // button - done 
+        let buttonDone = new Button('Done', this.onDone)
+        if(this.task.done) {
+            buttonDone = new Button('Done', this.onDone)
+        } else {
+            buttonDone = new Button('Not Done', this.onDone)
+        }
+        // button - delete
         let buttonDelete = new Button('Delete', this.onDelete)
         
         // task

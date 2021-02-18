@@ -3,10 +3,21 @@ class ToDo {
     constructor(tasks) {
         this.tasks = tasks || []
         this.container = null
+        this.loadTasks()
+    }
+    loadTasks() {
+        const newTasks = localStorage.getItem('todo')
+        this.tasks = JSON.parse(newTasks)
+    }
+    setTasks(newTasks) {
+        this.tasks = newTasks
+        localStorage.setItem('todo', JSON.stringify(newTasks))
+        this.render()
     }
     deleteTask(index) {
-        this.tasks = this.tasks.filter(task => task.id !== index)
-        this.render()
+        const newTasks = (this.tasks.filter(task => task.id !== index))
+        this.setTasks(newTasks)
+        
     }
     addTask(text) {
         const task = {
@@ -14,23 +25,22 @@ class ToDo {
             text: text,
             done: false,
         }
-        this.tasks = [...this.tasks, task]
-        this.render()
+        const newTasks = [...this.tasks, task]
+        this.setTasks(newTasks)
     }
     toggleDone(id) {
-        this.tasks = this.tasks.map(task => {
+        const newTasks = this.tasks.map(task => {
             if(task.id !== id) return task
             return {
                 ...task, done: !task.done
             }
         })
-        this.render()
+        this.setTasks(newTasks)
     }
     renderTask() {
         this.tasks.forEach((taskData) => {
             const task = new Task(taskData,
                 () => this.toggleDone(taskData.id),
-                // () => console.log('Done'),
                 () => this.deleteTask(taskData.id),
             )
             this.container.appendChild(task.render())
@@ -43,7 +53,6 @@ class ToDo {
         this.container.innerHTML = ''
 
         const form = new Form('', val => this.addTask(val))
-        // const form = new Form('', val => console.log(val))
         this.container.appendChild(form.render())
 
         this.renderTask()
