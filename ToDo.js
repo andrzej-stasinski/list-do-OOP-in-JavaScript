@@ -1,8 +1,9 @@
 
 class ToDo {
     constructor(tasks) {
-        this.tasks = this.loadTasks() || []
+        this.tasks = tasks || []
         this.container = null
+        this.loadTasks()
     }
     loadTasks() {
         const newTasks = localStorage.getItem('todo')

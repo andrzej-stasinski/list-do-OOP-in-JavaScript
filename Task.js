@@ -30,10 +30,18 @@ class Task {
 
         // buttons
         const buttons = document.createElement('div')
-        buttonDelete = buttonDelete.render()
-        buttonDelete.classList.add('btn-delete')
-        buttons.appendChild(buttonDone.render())
+            buttonDone = buttonDone.render()
+            this.task.done ? buttonDone.classList.add('btn-done') : buttonDone.classList.add('btn-none-done')
+            buttonDelete = buttonDelete.render()
+            buttonDelete.classList.add('btn-delete')
+        buttons.appendChild(buttonDone)
         buttons.appendChild(buttonDelete)
+
+        // const buttons = document.createElement('div')
+        // buttonDelete = buttonDelete.render()
+        // buttonDelete.classList.add('btn-delete')
+        // buttons.appendChild(buttonDone.render())
+        // buttons.appendChild(buttonDelete)
 
         container.appendChild(buttons)
         container.classList.add('containerTask')

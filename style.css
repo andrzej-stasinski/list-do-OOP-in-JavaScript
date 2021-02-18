@@ -27,7 +27,29 @@ form {
     margin-left: 5px;
 }
 .btn-delete {
-    background-color: rgb(255, 167, 167);;
+    background-color: rgb(255, 167, 167);
+    transition: background-color linear 0.4s;
+}
+.btn-delete:hover {
+    background-color: rgb(248, 134, 134);
+}
+.btn-done {
+    background-color: rgb(155, 155, 155);
+    color: #222;
+    transition: background-color linear 0.4s, color linear 0.4s;
+}
+.btn-done:hover {
+    background-color: rgb(130, 130, 130);
+    color: white;
+}
+.btn-none-done {
+    background-color: rgb(133, 236, 73);
+    color: #222;
+    transition: linear 0.4s background-color, color linear 0.4s;
+}
+.btn-none-done:hover {
+    background-color: rgb(67, 184, 0);
+    color: #fff;
 }
 .containerTask {
     display: flex;
@@ -40,6 +62,11 @@ form {
     text-decoration: line-through;
 }
 
+@media (max-width: 400px) {
+    .container {
+        background-color: yellow;
+    }    
+}
 
 
 
